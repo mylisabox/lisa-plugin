@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- 4
+- 5
+- 6
+notifications:
+  email: false
+  webhooks:
+    urls:
+    - https://webhooks.gitter.im/e/117063f9c1031b17e557
+    on_start: never
+    on_failure: change
+deploy:
+  provider: npm
+  email: jimmy.aumard@gmail.com
+  api_key:
+    secure: DS7zTYN8ISkHt/XXihIUY1PmtCmpuHhuiHBKghH0eos+81uGw8zR0u1JGu1PMWsrLQYaLNx3umYfRAo0dpxbnVm/C7yF3XZ0VvrtR0dVDlqsy1qQOvN4wERIvoYTXBcsghbBL4F7XugTGzuaBa654j92gyYpFnLp5Y/5KoLG6m3CTueCSgMR48O/1z1Ig1/22q3sndfjii8asKXEIq5OjzOBR0fkMdFkfXVFe1uTjzt1dPdc7Bc21IPcNMtC41U0LfrWNfAgxaMwdiu4H2mm2eD0DaarSoHAT1pkHI+dqBkS73kTEROsqqAbr4eEzoK732wUisvk5FS1kCXz2buLEUDHUvC/ZvZ2CDzqCqmG0UL1a4b4DQjpgKNYMAw42pXC7aHH96EXFYnAPuS83nr+H3QuUDLkn1FUmvtrhCr53zhvjdG9GGO2bGm7cce/eo870craxmOhhPi7YjURoKB4s2WrCM/pQR6u/hERBs/dRRTzGdJUIxA2BleG7w9xeiFJxTlLF3z9nx6PUclLb7DrSQEnQLerzZlHRMjgFpW56Kup5cBdyqyq+B/noAikzRYWir3oDiWBcG4RhBRYEA+MESmgEoIfNaRg76R23iUqHmeZ6RfT09Ic1VPQ/4AAuaqofAyvIB/3wj8E4pxcZq9dndNn4eL57cDwRbjUuVzKhus=
+  on:
+    tags: true
+    repo: mylisabox/lisa-plugin

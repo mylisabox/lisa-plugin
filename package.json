@@ -1,0 +1,26 @@
+{
+  "name": "lisa-plugin",
+  "version": "0.0.1",
+  "description": "Basic interface to implement / create L.I.S.A. plugins",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint . && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mylisabox/lisa-plugin.git"
+  },
+  "keywords": [
+    "lisa",
+    "lisa-plugin",
+    "plugins",
+    "home",
+    "automation"
+  ],
+  "author": "jaumard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mylisabox/lisa-plugin/issues"
+  },
+  "homepage": "https://github.com/mylisabox/lisa-plugin#readme"
+}
