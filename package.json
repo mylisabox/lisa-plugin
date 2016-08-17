@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/mylisabox/lisa-plugin.git"
   },
+  "eslintConfig": {
+    "extends": "trails"
+  },
   "keywords": [
     "lisa",
     "lisa-plugin",
@@ -22,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/mylisabox/lisa-plugin/issues"
   },
-  "homepage": "https://github.com/mylisabox/lisa-plugin#readme"
+  "homepage": "https://github.com/mylisabox/lisa-plugin#readme",
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-config-trails": "^1.0.7",
+    "lisabox": "0.0.1",
+    "mocha": "^3.0.2",
+    "trails": "^1.0.4"
+  }
 }
