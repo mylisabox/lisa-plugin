@@ -16,7 +16,7 @@ WORK IN PROGRESS
 [npm-url]: https://npmjs.org/package/lisa-plugin
 [ci-image]: https://img.shields.io/travis/mylisabox/lisa-plugin.svg?style=flat-square&label=Linux%20/%20OSX
 [ci-url]: https://travis-ci.org/mylisabox/lisa-plugin
-[npm-download]: https://img.shields.io/npm/dt/trailpack-annotations.svg
+[npm-download]: https://img.shields.io/npm/dt/lisa-plugin.svg
 [codeclimate-image]: https://img.shields.io/codeclimate/github/mylisabox/lisa-plugin.svg?style=flat-square
 [codeclimate-url]: https://codeclimate.com/github/mylisabox/lisa-plugin
 [gitter-image]: http://img.shields.io/badge/+%20GITTER-JOIN%20CHAT%20%E2%86%92-1DCE73.svg?style=flat-square
