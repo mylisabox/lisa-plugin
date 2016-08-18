@@ -1,6 +1,6 @@
 'use strict'
 
-const lisaApp = require('lisabox')
+const lisaApp = require('lisa-box')
 const TrailsApp = require('trails')
 
 before(() => {
