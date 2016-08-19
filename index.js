@@ -51,7 +51,8 @@ module.exports = class Plugin {
   }
 
   /**
-   *
+   * Initialisation of your plugin
+   * Called once, when plugin is loaded
    * @returns Promise
    */
   init() {
