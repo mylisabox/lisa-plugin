@@ -1,5 +1,7 @@
 'use strict'
 
+const _ = require('lodash')
+
 module.exports = class Plugin {
   /**
    * @constructor
@@ -13,8 +15,13 @@ module.exports = class Plugin {
    * their own definitions. Implementing application logic in the plugin
    * constructor is not recommended.
    */
-  construtor(lisa, plugin) {
+  constructor(lisa, plugin) {
     this.lisa = lisa
+
+    plugin = _.merge({
+      config: {},
+      api: {}
+    }, plugin)
 
     Object.defineProperties(this, {
       pkg: {
@@ -25,6 +32,21 @@ module.exports = class Plugin {
         value: plugin.config,
         enumerable: false
       }
+    })
+    this.controllers = this._bindMethods(lisa, plugin, 'controllers')
+    this.services = this._bindMethods(lisa, plugin, 'services')
+  }
+
+  /**
+   * Bind the context of API resource methods.
+   */
+  _bindMethods (app, plugin, resource) {
+    return _.mapValues(plugin.api[resource], (Resource, resourceName) => {
+      if (_.isPlainObject(Resource)) {
+        throw new Error(`${resourceName} should be a class. It is a regular object`)
+      }
+
+      return new Resource(app)
     })
   }
 
@@ -94,6 +116,48 @@ module.exports = class Plugin {
    * @return String
    */
   get name() {
-    return this.pkg.name.replace(/lisa\-/, '')
+    return this.pkg.name.replace(/lisa\-/, '').replace(/plugin\-/, '')
   }
 }
+
+module.exports.Service = class Service {
+  constructor(lisa) {
+    this.lisa = lisa
+  }
+
+  /**
+   * Expose the application's logger directly on the Plugin for convenience.
+   */
+  get log() {
+    return this.lisa.log
+  }
+
+  get _() {
+    return this.lisa._
+  }
+
+  get i18n() {
+    return this.lisa._
+  }
+}
+
+
+module.exports.Controller = class Controller {
+  constructor(lisa) {
+    this.lisa = lisa
+  }
+
+  get log() {
+    return this.lisa.log
+  }
+
+  get _() {
+    return this.lisa._
+  }
+
+  get i18n() {
+    return this.lisa._
+  }
+}
+
+

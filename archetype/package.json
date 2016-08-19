@@ -1,4 +1,5 @@
 {
+  "name": "lisa-plugin-<%=name%>",
   "main": "index.js",
   "scripts": {
     "test": "eslint . && mocha"
