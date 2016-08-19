@@ -4,7 +4,7 @@ const assert = require('assert')
 const Plugin = require('../../')
 
 class TestPlugin extends Plugin {
-  constructor(lisa, config) {
+  constructor(lisa) {
     super(lisa, {
       config: {},
       api: {

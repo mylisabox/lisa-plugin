@@ -4,7 +4,9 @@
   "description": "Basic interface to implement / create L.I.S.A. plugins",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . && mocha"
+    "test": "snyk test && eslint . && mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,8 @@
     "trails": "^1.0.4"
   },
   "dependencies": {
-    "lodash": "^4.15.0"
-  }
+    "lodash": "^4.15.0",
+    "snyk": "^1.18.0"
+  },
+  "snyk": true
 }

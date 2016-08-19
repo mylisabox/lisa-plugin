@@ -1,11 +1,16 @@
 'use strict'
 
-const lisaApp = require('lisabox')
 const TrailsApp = require('trails')
+const lisa = require('lisa-box')
+const smokesignals = require('smokesignals')
+const _ = require('lodash')
+const app = _.defaultsDeep(lisa, smokesignals.FailsafeConfig)
 
 before(() => {
-  global.app = new TrailsApp(lisaApp)
-  return global.app.start().catch(global.app.stop)
+  lisa.config.main.packs.push(require('../'))
+  lisa.config.database.models.migrate = 'drop'
+  global.app = new TrailsApp(app)
+  return global.app.start()
 })
 
 after(() => {
