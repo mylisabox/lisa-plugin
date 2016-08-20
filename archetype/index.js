@@ -2,7 +2,7 @@
 
 const Plugin = require('lisa-plugin')
 
-module.exports = class MyPlugin extends Plugin {
+module.exports = class <%= nameNormalized %>Plugin extends Plugin {
 
   /**
    * Initialisation of your plugin

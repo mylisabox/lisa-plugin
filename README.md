@@ -11,7 +11,18 @@
 
 Basic interface to implement to create L.I.S.A. plugins
 
-WORK IN PROGRESS
+If you want to create your own L.I.S.A. plugins, you're in the right place ! :)
+
+The more easy way to start with L.I.S.A. plugins is to use `generator-lisa` witch will create a template for you.
+ 
+```
+npm i -g yo generator-lisa
+yo lisa:plugin MyPluginName
+```
+
+You're good to go then :)
+ 
+Check the docs to learn more about the anatomy and concept about L.I.S.A. plugins.
 
 [snyk-image]: https://snyk.io/test/github/mylisabox/lisa-plugin/badge.svg
 [snyk-url]: https://snyk.io/test/github/mylisabox/lisa-plugin/
