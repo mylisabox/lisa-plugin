@@ -6,13 +6,13 @@ const pkg = require('../../package.json')
 const Plugin = require('../../')
 
 describe('plugin', () => {
-
+  let plugin
   before(() => {
-    global.app.packs['lisa-plugins-manager'][pkg.name] = new Plugin(global.app.lisa)
+    plugin = new Plugin(global.app.lisa)
+    global.app.packs.pluginsManager[plugin.name] = plugin
   })
 
   it('should exist', () => {
-    assert(global.app.packs['lisa-plugins-manager'][pkg.name])
-    assert.equal(global.app.packs['lisa-plugins-manager'][pkg.name].name, pkg.name.replace(/lisa\-/, '').replace(/plugin\-/, ''))
+    assert(plugin)
   })
 })

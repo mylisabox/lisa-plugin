@@ -20,7 +20,7 @@ class TestPlugin extends Plugin {
         }
       },
       pkg: {
-        name: 'lisa-plugin-test',
+        name: 'lisa-plugin-test-lisa',
         version: '0.0.0'
       }
     })
@@ -35,8 +35,8 @@ describe('lisa-plugin', ()=> {
 
   const plugin = new TestPlugin(fakeLisa)
 
-  it('should return name', () => {
-    assert.equal(plugin.name, 'test')
+  it('should return name in camel case', () => {
+    assert.equal(plugin.name, 'testLisa')
   })
 
   it('should return log function', () => {

@@ -61,9 +61,10 @@ module.exports = class Plugin {
 
   /**
    * Called automatically to search for new devices
+   * @param force true if user click refresh button
    * @return Promise
    */
-  searchDevices() {
+  searchDevices(force) {
     return Promise.resolve()
   }
 
@@ -117,7 +118,7 @@ module.exports = class Plugin {
    * @return String
    */
   get name() {
-    return this.pkg.name.replace(/lisa\-/, '').replace(/plugin\-/, '')
+    return this.pkg.name.replace(/lisa\-/, '').replace(/plugin\-/, '').toCamelCase()
   }
 }
 

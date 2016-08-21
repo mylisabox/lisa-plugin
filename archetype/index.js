@@ -15,9 +15,10 @@ module.exports = class <%= nameNormalized %>Plugin extends Plugin {
 
   /**
    * Called automatically to search for new devices
+   * @param force true if user click refresh button
    * @return Promise
    */
-  searchDevices() {
+  searchDevices(force) {
     return Promise.resolve()
   }
 
