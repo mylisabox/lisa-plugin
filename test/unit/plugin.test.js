@@ -3,6 +3,12 @@
 const assert = require('assert')
 const Plugin = require('../../')
 
+String.prototype.toCamelCase = function () {
+  return this.toLowerCase().replace(/(?:_|-)(.)/g, (match, group1) => {
+    return group1.toUpperCase()
+  })
+}
+
 class TestPlugin extends Plugin {
   constructor(lisa) {
     super(lisa, {
@@ -62,5 +68,4 @@ describe('lisa-plugin', ()=> {
     assert.equal(plugin.services.MyService._, fakeLisa._)
     assert.equal(plugin.services.MyService.i18n, fakeLisa._)
   })
-
 })

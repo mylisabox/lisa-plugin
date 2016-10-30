@@ -30,16 +30,15 @@
   },
   "homepage": "https://github.com/mylisabox/lisa-plugin#readme",
   "devDependencies": {
-    "eslint": "^3.3.1",
-    "eslint-config-trails": "^1.0.7",
-    "lisa-box": "^0.0.7",
-    "mocha": "^3.0.2",
-    "smokesignals": "^1.2.2",
-    "trails": "^1.0.4"
+    "eslint": "^3.9.0",
+    "eslint-config-trails": "^1.0.8",
+    "mocha": "^3.1.2"
   },
   "dependencies": {
-    "lodash": "^4.15.0",
-    "snyk": "^1.18.0"
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.mapvalues": "^4.6.0",
+    "lodash.merge": "^4.6.0",
+    "snyk": "^1.19.1"
   },
   "snyk": true
 }

@@ -1,6 +1,8 @@
 'use strict'
 
-const _ = require('lodash')
+const merge = require('lodash.merge')
+const mapValues = require('lodash.mapvalues')
+const isPlainObject = require('lodash.isplainobject')
 
 module.exports = class Plugin {
   /**
@@ -18,7 +20,11 @@ module.exports = class Plugin {
   constructor(lisa, plugin) {
     this.lisa = lisa
 
-    plugin = _.merge({
+    if (!plugin) {
+      throw new Error('lisa-plugin should be extend and plugin config should be set on constructor')
+    }
+
+    plugin = merge({
       config: {},
       api: {}
     }, plugin)
@@ -40,9 +46,9 @@ module.exports = class Plugin {
   /**
    * Bind the context of API resource methods.
    */
-  _bindMethods (app, plugin, resource) {
-    return _.mapValues(plugin.api[resource], (Resource, resourceName) => {
-      if (_.isPlainObject(Resource)) {
+  _bindMethods(app, plugin, resource) {
+    return mapValues(plugin.api[resource], (Resource, resourceName) => {
+      if (isPlainObject(Resource)) {
         throw new Error(`${resourceName} should be a class. It is a regular object`)
       }
 
@@ -84,7 +90,7 @@ module.exports = class Plugin {
    * soon thereafter.
    */
   unload() {
-
+    return Promise.resolve()
   }
 
   emit() {
