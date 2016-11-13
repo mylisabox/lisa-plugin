@@ -126,6 +126,26 @@ module.exports = class Plugin {
   get name() {
     return this.pkg.name.replace(/lisa\-/, '').replace(/plugin\-/, '').toCamelCase()
   }
+
+  /**
+   * Return the name of this Plugin. By default, this is the name of the
+   * npm module (in package.json).
+   *
+   * @return String
+   */
+  get fullName() {
+    return this.pkg.name
+  }
+
+  /**
+   * Return the version of this Plugin. By default, this is the version of the
+   * npm module (in package.json).
+   *
+   * @return String
+   */
+  get version() {
+    return this.pkg.version
+  }
 }
 
 module.exports.Service = class Service {
