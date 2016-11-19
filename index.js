@@ -46,13 +46,13 @@ module.exports = class Plugin {
   /**
    * Bind the context of API resource methods.
    */
-  _bindMethods(app, plugin, resource) {
+  _bindMethods(lisa, plugin, resource) {
     return mapValues(plugin.api[resource], (Resource, resourceName) => {
       if (isPlainObject(Resource)) {
         throw new Error(`${resourceName} should be a class. It is a regular object`)
       }
 
-      return new Resource(app)
+      return new Resource(lisa, this)
     })
   }
 
@@ -149,8 +149,9 @@ module.exports = class Plugin {
 }
 
 module.exports.Service = class Service {
-  constructor(lisa) {
+  constructor(lisa, plugin) {
     this.lisa = lisa
+    this.plugin = plugin
   }
 
   /**
@@ -171,8 +172,9 @@ module.exports.Service = class Service {
 
 
 module.exports.Controller = class Controller {
-  constructor(lisa) {
+  constructor(lisa, plugin) {
     this.lisa = lisa
+    this.plugin = plugin
   }
 
   get log() {

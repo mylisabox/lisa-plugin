@@ -59,6 +59,8 @@ describe('lisa-plugin', ()=> {
     assert.equal(plugin.controllers.MyController.log, console.log)
     assert.equal(plugin.controllers.MyController._, fakeLisa._)
     assert.equal(plugin.controllers.MyController.i18n, fakeLisa._)
+    assert(plugin.controllers.MyController.plugin)
+    assert.equal(plugin.controllers.MyController.plugin.name, 'testLisa')
   })
 
   it('should have api services', () => {
@@ -67,5 +69,7 @@ describe('lisa-plugin', ()=> {
     assert.equal(plugin.services.MyService.log, console.log)
     assert.equal(plugin.services.MyService._, fakeLisa._)
     assert.equal(plugin.services.MyService.i18n, fakeLisa._)
+    assert(plugin.services.MyService.plugin)
+    assert.equal(plugin.services.MyService.plugin.name, 'testLisa')
   })
 })
