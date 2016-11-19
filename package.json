@@ -1,6 +1,6 @@
 {
   "name": "lisa-plugin",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Basic interface to implement / create L.I.S.A. plugins",
   "main": "index.js",
   "scripts": {
