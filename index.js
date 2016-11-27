@@ -26,7 +26,8 @@ module.exports = class Plugin {
 
     plugin = merge({
       config: {},
-      api: {}
+      api: {},
+      bots: {}
     }, plugin)
 
     Object.defineProperties(this, {
@@ -41,10 +42,16 @@ module.exports = class Plugin {
     })
     this.controllers = this._bindMethods(lisa, plugin, 'controllers')
     this.services = this._bindMethods(lisa, plugin, 'services')
+    this.bots = plugin.bots
   }
 
   /**
    * Bind the context of API resource methods.
+   * @param lisa
+   * @param plugin
+   * @param resource
+   * @returns {Object}
+   * @private
    */
   _bindMethods(lisa, plugin, resource) {
     return mapValues(plugin.api[resource], (Resource, resourceName) => {

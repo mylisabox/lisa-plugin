@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require('assert')
-const Plugin = require('../../')
+const TestPlugin = require('../fake.plugin')
 
 String.prototype.toCamelCase = function () {
   return this.toLowerCase().replace(/(?:_|-)(.)/g, (match, group1) => {
@@ -9,34 +9,14 @@ String.prototype.toCamelCase = function () {
   })
 }
 
-class TestPlugin extends Plugin {
-  constructor(lisa) {
-    super(lisa, {
-      config: {},
-      api: {
-        controllers: {
-          MyController: class MyController extends Plugin.Controller {
-
-          }
-        },
-        services: {
-          MyService: class MyService extends Plugin.Service {
-
-          }
-        }
-      },
-      pkg: {
-        name: 'lisa-plugin-test-lisa',
-        version: '0.0.0'
-      }
-    })
-  }
-}
-
-describe('lisa-plugin', ()=> {
+describe('lisa-plugin unit', ()=> {
   const fakeLisa = {
     log: console.log,
-    _: () => {}
+    _: () => {
+    },
+    getChatBot: () => {
+      return Promise.resolve()
+    }
   }
 
   const plugin = new TestPlugin(fakeLisa)
