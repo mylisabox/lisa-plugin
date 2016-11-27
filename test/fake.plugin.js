@@ -1,3 +1,5 @@
+'use strict'
+
 const Plugin = require('../')
 module.exports = class TestPlugin extends Plugin {
   constructor(lisa) {
