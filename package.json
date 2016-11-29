@@ -38,7 +38,7 @@
     "lodash.isplainobject": "^4.0.6",
     "lodash.mapvalues": "^4.6.0",
     "lodash.merge": "^4.6.0",
-    "snyk": "^1.19.1"
+    "snyk": "^1.21.0"
   },
   "snyk": true
 }
