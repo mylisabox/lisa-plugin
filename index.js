@@ -38,11 +38,14 @@ module.exports = class Plugin {
       config: {
         value: plugin.config,
         enumerable: false
+      },
+      bots: {
+        value: plugin.bots,
+        enumerable: false
       }
     })
     this.controllers = this._bindMethods(lisa, plugin, 'controllers')
     this.services = this._bindMethods(lisa, plugin, 'services')
-    this.bots = plugin.bots
   }
 
   /**
