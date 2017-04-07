@@ -74,16 +74,7 @@ module.exports = class Plugin {
   init() {
     return Promise.resolve()
   }
-
-  /**
-   * Called automatically to search for new devices
-   * @param force true if user click refresh button
-   * @return Promise
-   */
-  searchDevices(force) {
-    return Promise.resolve()
-  }
-
+  
   /**
    * Called when
    * @param action to execute
