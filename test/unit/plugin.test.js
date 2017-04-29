@@ -33,16 +33,6 @@ describe('lisa-plugin unit', ()=> {
     assert(plugin.lisa)
   })
 
-  it('should have api controllers', () => {
-    assert(plugin.controllers)
-    assert(plugin.controllers.MyController)
-    assert.equal(plugin.controllers.MyController.log, console.log)
-    assert.equal(plugin.controllers.MyController._, fakeLisa._)
-    assert.equal(plugin.controllers.MyController.i18n, fakeLisa._)
-    assert(plugin.controllers.MyController.plugin)
-    assert.equal(plugin.controllers.MyController.plugin.name, 'testLisa')
-  })
-
   it('should have api services', () => {
     assert(plugin.services)
     assert(plugin.services.MyService)

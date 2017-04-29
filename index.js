@@ -74,7 +74,49 @@ module.exports = class Plugin {
   init() {
     return Promise.resolve()
   }
-  
+
+  /**
+   * Set new value to a device
+   * @param device who has changed
+   * @param key of the changed value
+   * @param newValue
+   * @returns Promise
+   */
+  setDeviceValue(device, key, newValue) {
+    return Promise.resolve()
+  }
+
+  /**
+   * Get device values
+   * @param device context
+   * @param keys of the wanted values
+   * @returns Promise
+   */
+  getDeviceValue(device, keys) {
+    return Promise.resolve()
+  }
+
+  /**
+   * Set new value to multiple devices at once
+   * @param devices who has changed
+   * @param key of the changed value
+   * @param newValue
+   * @returns Promise
+   */
+  setDevicesValue(devices, key, newValue) {
+    return Promise.resolve()
+  }
+
+  /**
+   * Get devices values
+   * @param devices context
+   * @param keys of the wanted values
+   * @returns Promise
+   */
+  getDevicesValue(devices, keys) {
+    return Promise.resolve()
+  }
+
   /**
    * Called when
    * @param action to execute
@@ -170,25 +212,3 @@ module.exports.Service = class Service {
     return this.lisa._
   }
 }
-
-
-module.exports.Controller = class Controller {
-  constructor(lisa, plugin) {
-    this.lisa = lisa
-    this.plugin = plugin
-  }
-
-  get log() {
-    return this.lisa.log
-  }
-
-  get _() {
-    return this.lisa._
-  }
-
-  get i18n() {
-    return this.lisa._
-  }
-}
-
-

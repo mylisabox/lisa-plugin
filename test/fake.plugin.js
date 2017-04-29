@@ -6,11 +6,6 @@ module.exports = class TestPlugin extends Plugin {
     super(lisa, {
       config: {},
       api: {
-        controllers: {
-          MyController: class MyController extends Plugin.Controller {
-
-          }
-        },
         services: {
           MyService: class MyService extends Plugin.Service {
 

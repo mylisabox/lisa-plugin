@@ -4,7 +4,7 @@
   "description": "Basic interface to implement / create L.I.S.A. plugins",
   "main": "index.js",
   "scripts": {
-    "test": "snyk test && eslint . && mocha",
+    "test": "eslint . && mocha",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
     "mypublish": "npm version patch && git push --tags && git push"
@@ -30,15 +30,15 @@
   },
   "homepage": "https://github.com/mylisabox/lisa-plugin#readme",
   "devDependencies": {
-    "eslint": "^3.14.1",
-    "eslint-config-trails": "^1.2.0",
-    "mocha": "^3.2.0"
+    "eslint": "^3.19.0",
+    "eslint-config-trails": "^2.0.8",
+    "mocha": "^3.3.0"
   },
   "dependencies": {
     "lodash.isplainobject": "^4.0.6",
     "lodash.mapvalues": "^4.6.0",
     "lodash.merge": "^4.6.0",
-    "snyk": "^1.24.6"
+    "snyk": "^1.29.0"
   },
   "snyk": true
 }
