@@ -10,7 +10,7 @@ module.exports = class <%= nameNormalized %>Plugin extends Plugin {
    * @returns Promise
    */
   init() {
-    return Promise.resolve()
+    return super.init()
   }
 
   /**

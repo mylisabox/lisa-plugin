@@ -71,7 +71,11 @@ module.exports = class Plugin {
    * @returns Promise
    */
   init() {
-    return Promise.resolve()
+    const driversInit = []
+    for (let driver of this.drivers) {
+      driversInit.push(driver.init())
+    }
+    return Promise.all(driversInit)
   }
 
   /**
@@ -90,7 +94,11 @@ module.exports = class Plugin {
    * soon thereafter.
    */
   unload() {
-    return Promise.resolve()
+    const driversUnload = []
+    for (let driver of this.drivers) {
+      driversUnload.push(driver.unload())
+    }
+    return Promise.all(driversUnload)
   }
 
   emit() {
