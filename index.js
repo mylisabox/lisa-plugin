@@ -124,7 +124,7 @@ module.exports = class Plugin {
    * @return String
    */
   get name() {
-    return this.pkg.name.replace(/lisa\-/, '').replace(/plugin\-/, '').toCamelCase()
+    return this.pkg.name.replace(/lisa-/, '').replace(/plugin-/, '').toCamelCase()
   }
 
   /**
