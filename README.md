@@ -20,6 +20,13 @@ npm i -g yo generator-lisa
 yo lisa:plugin MyPluginName
 ```
 
+For adding a new driver to the plugin :
+
+```
+yo lisa:driver MyDriverName
+```
+
+
 You're good to go then :)
  
 Check the docs to learn more about the anatomy and concept about L.I.S.A. plugins.
