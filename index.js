@@ -72,8 +72,8 @@ module.exports = class Plugin {
    */
   init() {
     const driversInit = []
-    for (let driver of this.drivers) {
-      driversInit.push(driver.init())
+    for (let driverName in this.drivers) {
+      driversInit.push(this.drivers[driverName].init())
     }
     return Promise.all(driversInit)
   }
@@ -95,8 +95,8 @@ module.exports = class Plugin {
    */
   unload() {
     const driversUnload = []
-    for (let driver of this.drivers) {
-      driversUnload.push(driver.unload())
+    for (let driverName in this.drivers) {
+      driversUnload.push(this.drivers[driverName].unload())
     }
     return Promise.all(driversUnload)
   }
