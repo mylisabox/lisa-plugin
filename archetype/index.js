@@ -14,15 +14,6 @@ module.exports = class <%= nameNormalized %>Plugin extends Plugin {
   }
 
   /**
-   * Called automatically to search for new devices
-   * @param force true if user click refresh button
-   * @return Promise
-   */
-  searchDevices(force) {
-    return Promise.resolve()
-  }
-
-  /**
    * Called when
    * @param action to execute
    * @param infos context of the action
@@ -35,7 +26,7 @@ module.exports = class <%= nameNormalized %>Plugin extends Plugin {
   constructor(app) {
     super(app, {
       config: require('./config'),
-      api: require('./api'),
+      drivers: require('./drivers'),
       pkg: require('./package')
     })
   }

@@ -33,13 +33,13 @@ describe('lisa-plugin unit', ()=> {
     assert(plugin.lisa)
   })
 
-  it('should have api services', () => {
-    assert(plugin.services)
-    assert(plugin.services.MyService)
-    assert.equal(plugin.services.MyService.log, console.log)
-    assert.equal(plugin.services.MyService._, fakeLisa._)
-    assert.equal(plugin.services.MyService.i18n, fakeLisa._)
-    assert(plugin.services.MyService.plugin)
-    assert.equal(plugin.services.MyService.plugin.name, 'testLisa')
+  it('should have api driver', () => {
+    assert(plugin.drivers)
+    assert(plugin.drivers.MyDriver)
+    assert.equal(plugin.drivers.MyDriver.log, console.log)
+    assert.equal(plugin.drivers.MyDriver._, fakeLisa._)
+    assert.equal(plugin.drivers.MyDriver.i18n, fakeLisa._)
+    assert(plugin.drivers.MyDriver.plugin)
+    assert.equal(plugin.drivers.MyDriver.plugin.name, 'testLisa')
   })
 })

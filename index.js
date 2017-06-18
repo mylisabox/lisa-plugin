@@ -26,7 +26,7 @@ module.exports = class Plugin {
 
     plugin = merge({
       config: {},
-      api: {},
+      drivers: {},
       bots: {}
     }, plugin)
 
@@ -44,8 +44,7 @@ module.exports = class Plugin {
         enumerable: false
       }
     })
-    this.controllers = this._bindMethods(lisa, plugin, 'controllers')
-    this.services = this._bindMethods(lisa, plugin, 'services')
+    this.drivers = this._bindMethods(lisa, plugin, 'drivers')
   }
 
   /**
@@ -57,7 +56,7 @@ module.exports = class Plugin {
    * @private
    */
   _bindMethods(lisa, plugin, resource) {
-    return mapValues(plugin.api[resource], (Resource, resourceName) => {
+    return mapValues(plugin[resource], (Resource, resourceName) => {
       if (isPlainObject(Resource)) {
         throw new Error(`${resourceName} should be a class. It is a regular object`)
       }
@@ -72,48 +71,6 @@ module.exports = class Plugin {
    * @returns Promise
    */
   init() {
-    return Promise.resolve()
-  }
-
-  /**
-   * Set new value to a device
-   * @param device who has changed
-   * @param key of the changed value
-   * @param newValue
-   * @returns Promise
-   */
-  setDeviceValue(device, key, newValue) {
-    return Promise.resolve()
-  }
-
-  /**
-   * Get device values
-   * @param device context
-   * @param keys of the wanted values
-   * @returns Promise
-   */
-  getDeviceValue(device, keys) {
-    return Promise.resolve()
-  }
-
-  /**
-   * Set new value to multiple devices at once
-   * @param devices who has changed
-   * @param key of the changed value
-   * @param newValue
-   * @returns Promise
-   */
-  setDevicesValue(devices, key, newValue) {
-    return Promise.resolve()
-  }
-
-  /**
-   * Get devices values
-   * @param devices context
-   * @param keys of the wanted values
-   * @returns Promise
-   */
-  getDevicesValue(devices, keys) {
     return Promise.resolve()
   }
 
@@ -191,7 +148,7 @@ module.exports = class Plugin {
   }
 }
 
-module.exports.Service = class Service {
+module.exports.Driver = class Driver {
   constructor(lisa, plugin) {
     this.lisa = lisa
     this.plugin = plugin
@@ -211,4 +168,65 @@ module.exports.Service = class Service {
   get i18n() {
     return this.lisa._
   }
+
+  /**
+   * Init the driver, call once when driver is loaded
+   * @returns {Promise}
+   */
+  init() {
+    return Promise.resolve()
+  }
+
+  /**
+   * UI form submitted by the user and need to be saved
+   * @param deviceData from the UI form
+   * @returns {Promise}
+   */
+  saveDevice(deviceData) {
+    return this.lisa.createOrUpdateDevices(deviceData)
+  }
+
+  /**
+   * Retrieve list of available devices
+   * @returns {Promise.<Array>}
+   */
+  getDevices() {
+    return Promise.resolve([])
+  }
+
+  /**
+   * Data required by front UI
+   * @param devices to fill data
+   * @returns {Promise}
+   */
+  getDevicesData(devices) {
+    return Promise.resolve(devices)
+  }
+
+  /**
+   * Set new value to a device
+   * @param device who has changed
+   * @param key of the changed value
+   * @param newValue
+   * @returns {Promise}
+   */
+  setDeviceValue(device, key, newValue) {
+    return Promise.resolve()
+  }
+
+  /**
+   * Set new value to multiple devices at once
+   * @param devices who has changed
+   * @param key of the changed value
+   * @param newValue
+   * @returns Promise
+   */
+  setDevicesValue(devices, key, newValue) {
+    return Promise.resolve()
+  }
+
+  unload() {
+    return Promise.resolve()
+  }
+
 }

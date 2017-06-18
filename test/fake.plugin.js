@@ -5,11 +5,9 @@ module.exports = class TestPlugin extends Plugin {
   constructor(lisa) {
     super(lisa, {
       config: {},
-      api: {
-        services: {
-          MyService: class MyService extends Plugin.Service {
+      drivers: {
+        MyDriver: class MyDriver extends Plugin.Driver {
 
-          }
         }
       },
       bots: {
