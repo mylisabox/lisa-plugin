@@ -68,8 +68,8 @@ class Plugin {
    */
   init() {
     const driversInit = [];
-    for (const driver of this.drivers) {
-      driversInit.push(driver.init());
+    for (const driverName of Object.keys(this.drivers)) {
+      driversInit.push(this.drivers[driverName].init());
     }
     return Promise.all(driversInit);
   }
