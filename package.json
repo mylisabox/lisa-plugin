@@ -1,20 +1,16 @@
 {
+  "type": "module",
   "name": "lisa-plugin",
-  "version": "0.0.15",
+  "version": "0.1.0",
   "description": "Basic interface to implement / create L.I.S.A. plugins",
   "main": "index.js",
   "scripts": {
     "test": "eslint . && mocha",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect",
     "mypublish": "npm version patch && git push --tags && git push"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mylisabox/lisa-plugin.git"
-  },
-  "eslintConfig": {
-    "extends": "trails"
   },
   "keywords": [
     "lisa",
@@ -30,15 +26,11 @@
   },
   "homepage": "https://github.com/mylisabox/lisa-plugin#readme",
   "devDependencies": {
-    "eslint": "^4.0.0",
-    "eslint-config-trails": "^3.0.0",
-    "mocha": "^3.4.2"
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^9.1.1"
   },
   "dependencies": {
-    "lodash.isplainobject": "^4.0.6",
-    "lodash.mapvalues": "^4.6.0",
-    "lodash.merge": "^4.6.0",
-    "snyk": "^1.34.4"
-  },
-  "snyk": true
+    "lodash-es": "^4.17.21"
+  }
 }

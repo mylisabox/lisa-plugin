@@ -1,13 +1,12 @@
-'use strict'
+import assert from 'assert';
+import TestPlugin from '../fake.plugin.js';
 
-const assert = require('assert')
-const TestPlugin = require('../fake.plugin')
-
-String.prototype.toCamelCase = function () {
+// eslint-disable-next-line no-extend-native
+String.prototype.toCamelCase = function() {
   return this.toLowerCase().replace(/(?:_|-)(.)/g, (match, group1) => {
-    return group1.toUpperCase()
-  })
-}
+    return group1.toUpperCase();
+  });
+};
 
 describe('lisa-plugin unit', ()=> {
   const fakeLisa = {
@@ -15,31 +14,31 @@ describe('lisa-plugin unit', ()=> {
     _: () => {
     },
     getChatBot: () => {
-      return Promise.resolve()
-    }
-  }
+      return Promise.resolve();
+    },
+  };
 
-  const plugin = new TestPlugin(fakeLisa)
+  const plugin = new TestPlugin(fakeLisa);
 
   it('should return name in camel case', () => {
-    assert.equal(plugin.name, 'testLisa')
-  })
+    assert.strictEqual(plugin.name, 'testLisa');
+  });
 
   it('should return log function', () => {
-    assert.equal(plugin.log, console.log)
-  })
+    assert.strictEqual(plugin.log, console.log);
+  });
 
   it('should have lisa instance', () => {
-    assert(plugin.lisa)
-  })
+    assert(plugin.lisa);
+  });
 
   it('should have api driver', () => {
-    assert(plugin.drivers)
-    assert(plugin.drivers.MyDriver)
-    assert.equal(plugin.drivers.MyDriver.log, console.log)
-    assert.equal(plugin.drivers.MyDriver._, fakeLisa._)
-    assert.equal(plugin.drivers.MyDriver.i18n, fakeLisa._)
-    assert(plugin.drivers.MyDriver.plugin)
-    assert.equal(plugin.drivers.MyDriver.plugin.name, 'testLisa')
-  })
-})
+    assert(plugin.drivers);
+    assert(plugin.drivers.MyDriver);
+    assert.strictEqual(plugin.drivers.MyDriver.log, console.log);
+    assert.strictEqual(plugin.drivers.MyDriver._, fakeLisa._);
+    assert.strictEqual(plugin.drivers.MyDriver.i18n, fakeLisa._);
+    assert(plugin.drivers.MyDriver.plugin);
+    assert.strictEqual(plugin.drivers.MyDriver.plugin.name, 'testLisa');
+  });
+});
